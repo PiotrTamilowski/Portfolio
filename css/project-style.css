@@ -1,0 +1,85 @@
+:root{
+    --bgColor: #1d1d35;
+    --strokeColor: #e4e4e4;
+    --fontColor: #e4e4e4;
+    --navColor: rgba(23, 21, 36, 0.8);
+    --gradient: linear-gradient(#00004b, rgb(0 0 0 / 30%));
+    --hover: #00a1ff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background: linear-gradient(to right, #051a41, #03011f);
+    color: var(--fontColor);
+    font-family: 'Roboto', sans-serif;
+}
+#wrapper{
+    width: 80%;
+    margin: auto;
+}
+section#project-main h1{
+    text-align: center;
+    font-size: 3rem;
+    padding: 30px 0;
+}
+section#project-main a{
+    position: relative;
+}
+section#project-main a:hover img:nth-of-type(2){
+    opacity: 0;
+}
+section#project-main a img:nth-of-type(2){
+    position: absolute;
+    top: 0;
+}
+
+section#project-main img{
+    display: block;
+    margin: auto;
+    width: 100%;  
+    transition: 0.5s;
+}
+section#project-main h2{
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px 0;
+    font-weight: 400;
+}
+section#project-main div{
+    margin: 10vh 0;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+section#project-main p{
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 15px 0px white;
+}
+
+
+@media(max-width: 1000px){
+    :root{
+        font-size: 14px;
+    }
+}
+@media(max-width: 1000px){
+    #wrapper{
+        width: 95%;
+    }
+}
+@media(max-width: 600px){
+    :root{
+        font-size: 12px;
+    }
+    section#project-main p{
+        padding: 15px;
+    }
+    section#project-main h3{
+        padding: 15px 25px;
+    }
+}

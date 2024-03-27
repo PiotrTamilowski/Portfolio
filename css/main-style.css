@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root{
+    --bgColor: #1d1d35;
+    --strokeColor: #e4e4e4;
+    --fontColor: #e4e4e4;
+    --navColor: rgba(23, 21, 36, 0.8);
+    --gradient: linear-gradient(#00004b, rgb(0 0 0 / 30%));
+    --hover: #00a1ff;
+
+    --navHeight: 50px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background: linear-gradient(to right, #051a41, #03011f);
+    color: var(--fontColor);
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+/* class added to body to disable scroll event */
+.stop-scrolling{
+    height: 100%;
+    overflow: hidden;
+}
+
+abbr{
+    cursor: help;
+}
+
+
+
+/* First SVG image which appears when page is reloaded */
+
+svg#name-svg{
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, 0);
+    animation: moveTop 1s linear 4s forwards, fillLetters 7.5s linear forwards;;
+    
+}
+#name-svg g{
+    transform: translate(105.01112px ,-87.273379px);    
+}
+#name-svg path{
+    stroke: var(--strokeColor);
+    stroke-width: 1px;
+    stroke-dashoffset: 520;
+    stroke-dasharray: 520;
+   
+}
+
+#name-svg path:nth-of-type(1), #name-svg path:nth-of-type(2), #name-svg path:nth-of-type(3), #name-svg path:nth-of-type(4), #name-svg path:nth-of-type(5), #name-svg path:nth-of-type(6){
+    animation: draw 5s linear forwards;
+} 
+#name-svg path:nth-of-type(7), #name-svg path:nth-of-type(8), #name-svg path:nth-of-type(9), #name-svg path:nth-of-type(11), #name-svg path:nth-of-type(12), #name-svg path:nth-of-type(13), #name-svg path:nth-of-type(14), #name-svg path:nth-of-type(16), #name-svg path:nth-of-type(17), #name-svg path:nth-of-type(18)   {
+     animation: draw 5s linear 1.5s forwards; 
+}
+#name-svg path:nth-of-type(10), #name-svg path:nth-of-type(15) {
+    animation: draw 3s linear 1.5s forwards; 
+}
+
+
+/* Nav bar containing Second SVG Logo and other options*/
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--navHeight);
+    transform: translateY(-100px);
+    line-height: var(--navHeight);
+    text-align: right;   
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    transition: 1s;
+    animation: navSlide 1s forwards;
+}
+
+nav.show-nav{
+    left: 0;
+}
+nav.background{
+    background: var(--gradient);
+}
+
+nav.scroll{
+    background: var(--gradient);
+}
+
+nav a{
+    display: inline-block;
+    line-height: var(--navHeight);
+    margin: 0 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--fontColor);
+    transition: 1s;
+}
+nav a:nth-of-type(1){
+    float: left;
+    margin-left: 10px;   
+    height: 100%;
+}
+
+
+nav a:hover{
+    color: var(--hover);
+    transform: scale(1.2);
+    text-shadow: 0px 0px 40px var(--hover);
+}
+
+nav a:nth-of-type(1):hover{
+    transform: scale(1) rotate(10deg);
+    transform-origin: 20% 40%;
+}
+nav a:nth-of-type(1):hover path{
+    fill: #00cfeb;
+}
+
+nav svg{
+    width: var(--navHeight);
+    height: var(--navHeight);
+    transition: 1s;
+}
+nav svg path{
+    stroke-width: 2px;
+    stroke: var(--hover);
+    fill: none;
+    transform: scale(1);
+    transition: 1s
+}
+
+/* phone nav */
+#phone-nav-button{
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transform: translate(0px, -100px);
+    z-index: 5;  
+    animation: navSlide 0.5s forwards;
+}
+
+#phone-nav-button div{
+    position: absolute;
+    width: 100%;
+    border: 2px solid white;
+    transform: translate(0%, -50%);
+    transition: 1s;
+}
+#phone-nav-button div:nth-of-type(1){
+    top: 25%;
+}
+#phone-nav-button div:nth-of-type(2){
+    top: 50%;
+    left: 0;
+}
+#phone-nav-button div:nth-of-type(3){
+    top: 75%;
+}
+
+#phone-nav-button.clicked div:nth-of-type(1){
+    top: 50%;
+    transform: rotate(135deg);
+}
+#phone-nav-button.clicked div:nth-of-type(2){
+    left: 200%;
+}
+#phone-nav-button.clicked div:nth-of-type(3){
+    top: 50%;
+    transform: rotate(-135deg); 
+}
+#phone-nav-button.clicked:hover div{
+    border-color: var(--hover)
+}
+
+
+
+
+
+/* Div which wraps all other elements on the page */
+#wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: none;
+}
+
+
+/* First greeting section */
+section#top{
+    position: relative;
+    height: 100vh;  
+    left: -100vw;
+    animation: slideFromLeft 1s forwards;   
+}
+
+section#top div{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1{
+    font-size: 4rem;
+    color: #afafaf
+}
+h2{
+    font-size: 5rem;
+}
+h3{
+    font-size: 3rem;
+    color: #afafaf
+}
+h4{
+    font-size: 4rem;
+    text-align: center;
+
+}
+
+
+/* Second about me section */
+section#about-me{
+    padding-top: 120px;
+}
+div#overall p{
+    font-size: 2rem;
+    width: 80%;
+    padding-top: 30vh;
+    line-height: 2.5rem;
+    opacity: 0;
+    transition: opacity 3s;
+}
+div#overall p:nth-of-type(even){
+    margin-left: auto;
+}
+div#overall p:first-of-type{
+    padding-top: 100px
+}
+
+
+
+/* timeline section*/
+div#timeline{
+    position: relative;
+    margin-top: 30vh;
+    font-size: 1.5rem;
+}
+
+/* vertical line*/
+div#line{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: var(--strokeColor);
+    width: 10px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+div.year{
+    position: relative;
+    width: 200px;
+    margin: 50px auto 0;
+}
+
+
+div.horizontal-line{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 10px;
+    width: 50px;
+    background-color: var(--strokeColor);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.timeline-container-left{
+    position: relative;
+    width: 50%;
+    margin-right: 20px;
+    margin-top: 100px; 
+    margin-bottom: 100px;
+}
+
+.timeline-container-right{
+    position: relative;
+    width: 50%;
+    margin-left: auto;
+    margin-top: 100px; 
+    margin-bottom: 100px;
+}
+
+.timeline-container-left p{
+    width: 90%;
+    transform: translateX(-50vw);
+    transition: 1s;
+}
+
+.timeline-container-right p{
+    width: 90%;
+    margin-left: auto;
+    transform: translateX(50vw);
+    transition: 1s;
+}
+
+div.circle{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 4px solid var(--strokeColor);
+    border-radius: 50%;
+    background-color: var(--bgColor);
+}
+
+.timeline-container-left div.circle{
+    top: 0;
+    right: 0;
+    transform: translate(50%);
+}
+
+.timeline-container-right div.circle{
+    top: 0;
+    left: 0;
+    transform: translate(-50%);
+}
+
+
+div#timeline a{
+    color: var(--hover);
+    word-break: break-word;
+}
+
+div#timeline p:hover+div{
+    background-color: var(--hover);
+}
+
+/* Third Portfolio section*/
+section#portfolio{
+    padding-top: 120px;
+}
+
+a.project-container{
+    display: block;
+    position: relative;
+    margin-top: 10vh;
+}
+a.project-container:hover img.project-image{
+    box-shadow: 0 0 40px 0 var(--hover);
+}
+img.project-image{
+    width: 100%;
+    transition: 0.5s;
+}
+
+.project-container:nth-of-type(odd) h5{
+    left: 0;
+    transform: translate(-50%);
+}
+.project-container:nth-of-type(even) h5{
+    right: 0;
+    transform: translate(50%);
+}
+
+h5{
+    position: absolute;
+    top: 20%;
+    padding: 5px;
+    color: var(--fontColor);
+    border: 5px solid transparent;
+    background-color: var(--bgColor);
+    font-size: 1.5rem;
+}
+
+.project-container img.project-image:nth-of-type(2){
+    position: absolute;
+    left: 0;
+}
+.project-container:hover img.project-image:nth-child(2){
+    opacity: 0;
+}
+
+
+/* contact section */
+
+footer{
+    display: none;
+    width: 100%;
+    height: 50px;
+    margin-top: 100px;
+    background-color: #222;  
+}
+footer ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+footer li{
+    list-style: none;
+}
+
+footer i{
+    font-size: 25px;
+    color: white;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+footer i:hover{
+    color: #00a1ff;
+    transform: scale(1.5);
+}
+
+
+
+
+
+
+
+
+
+/* animations */
+
+@keyframes draw{
+    to{
+        stroke-dashoffset: 0;
+        
+    }
+}
+@keyframes moveTop{
+    0%{
+        opacity: 1;
+        
+    }
+    100%{
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        display: none;
+        
+    }
+}
+@keyframes fillLetters{
+    0%{
+        fill: transparent;
+    }
+    80%{
+        fill: url(#myGradient);
+    }
+}
+@keyframes navSlide{
+    to{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slideFromLeft{
+    0%{
+        left: -100vw;
+    }
+    100%{
+        left: 0vw;
+    }
+}
+
+
+
+
+
+
+
+/* Media queries */
+
+@media(max-width: 1200px){
+    :root{
+        font-size: 14px;
+    }
+    #wrapper{
+        width: 80%;
+    }
+}
+
+@media(max-width: 1000px){
+    :root{
+        --gradient: linear-gradient(#00004b, rgb(0 0 0 / 100%));
+    }
+    .project-container{
+        padding-top: 50px;
+    }
+    h5{
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: center;        
+    }
+    .project-container:nth-of-type(odd) h5, .project-container:nth-of-type(even) h5{
+        transform: translate(0%);
+        background: transparent;
+    }
+    #phone-nav-button{
+        display: block;
+    }
+    nav{
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        justify-content: space-around;
+        transform: translateY(0);
+        left: 100%;
+    }
+    nav a:nth-of-type(1){
+        display: none;
+    }
+    nav a{
+        text-align: center;
+        font-size: 4rem;
+    }
+    div#timeline{
+        overflow-x: hidden
+    }
+    svg#name-svg{
+        width: 80%;
+    }
+}
+
+@media(max-width: 800px){
+    :root{
+        font-size: 12px;
+    }
+    #wrapper{
+        width: 90%;
+    }
+    div#overall p{
+        width: 100%;
+    }
+    div.year{
+        font-size: 2rem;
+    }
+    svg#name-svg{
+        width: 95%;
+    }
+}
+
+@media(max-width: 600px){
+    :root{
+        font-size: 10px;
+    }
+    #wrapper{
+        width: 95%;
+    }
+
+    div#line{
+        width: 5px;
+    }
+    div.circle{
+        width: 25px;
+        height: 25px;
+    }
+    div.horizontal-line{
+        height: 5px;
+    }
+    
+}
