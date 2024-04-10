@@ -6,7 +6,7 @@ const rightTimelineElements = document.querySelectorAll(".timeline-container-rig
 const r = document.querySelector(":root");
 const logoSvg = document.querySelector("nav svg")
 const logoPath = document.querySelector("nav svg path")
-const navButton = document.querySelector("#phone-nav-button");
+const navButton = document.querySelector(".phone-nav-button");
 const nav = document.querySelector("nav");
 const aboutMeParagraphs = document.querySelectorAll("#overall>p");
 

@@ -21,7 +21,7 @@ if (sessionStorage.getItem("isFirstLoad") == null) {
     const nameSvg = document.querySelector("#name-svg");
     nameSvg.style.display = "block";
 
-    const phoneNavButton = document.querySelector("#phone-nav-button");
+    const phoneNavButton = document.querySelector(".phone-nav-button");
     phoneNavButton.classList.add("phone-nav-button-animation");
 
     const sectionTop = document.querySelector("section#top");
