@@ -27,7 +27,7 @@ scrollTo(0, window.top);
     },10)
 }
         
-        
+logoSvg.addEventListener("click", () => {sessionStorage.removeItem("isFirstLoad")});   
 
        
 
