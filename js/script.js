@@ -41,16 +41,16 @@ if(window.innerWidth < 1000){
 
 /* Scroll events*/
 window.addEventListener("scroll", function(){
-    /* This part of the code is checking the scroll position. If timeline element is positioned 25% from the bottom of your screen then it will slide from left or right. If you scroll up and element won't be visible on your screen, then it will move back beyond your screen width, so once you scroll down, the animation will be triggered again */
+    /* This part of the code is checking the scroll position. If timeline element is positioned 10% from the bottom of your screen then it will slide from left or right. If you scroll up and element won't be visible on your screen, then it will move back beyond your screen width, so once you scroll down, the animation will be triggered again */
     for(timelineElement of leftTimelineElements){
-        if(timelineElement.getBoundingClientRect().y < viewportH/4*3){
+        if(timelineElement.getBoundingClientRect().y < viewportH/10*9){
             timelineElement.style.transform = "translateX(0vw)"
         } else if (timelineElement.getBoundingClientRect().y > viewportH){
             timelineElement.style.transform = "translateX(-50vw)"
         }
     }
     for(rigthTimelineElement of rightTimelineElements){
-        if(rigthTimelineElement.getBoundingClientRect().y < viewportH/4*3){
+        if(rigthTimelineElement.getBoundingClientRect().y < viewportH/10*9){
             rigthTimelineElement.style.transform = "translateX(0vw)"
         } else if (rigthTimelineElement.getBoundingClientRect().y > viewportH){
             rigthTimelineElement.style.transform = "translateX(50vw)"
