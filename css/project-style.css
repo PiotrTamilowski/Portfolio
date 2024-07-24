@@ -17,6 +17,16 @@ body{
     color: var(--fontColor);
     font-family: 'Roboto', sans-serif;
 }
+a.back{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+a.back:hover{
+    animation: back 2s infinite;
+}
+
+
 #wrapper{
     width: 80%;
     margin: auto;
@@ -61,6 +71,19 @@ section#project-main p{
     box-shadow: 0px 0px 15px 0px white;
 }
 
+@keyframes back{
+    0%{
+        transform: translateX(0px);
+        
+    }
+    80%{
+        transform: translateX(-20px);;
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
 
 @media(max-width: 1000px){
     :root{
@@ -76,6 +99,17 @@ section#project-main p{
     :root{
         font-size: 12px;
     }
+    a.back{
+        top: 25px;
+    }
+    a.back img{
+        width: 48px;
+        height: 48px;
+    }
+    h1{
+        margin: auto;
+        width: 70%;
+    }
     section#project-main p{
         padding: 15px;
     }
@@ -83,3 +117,6 @@ section#project-main p{
         padding: 15px 25px;
     }
 }
+
+
+
